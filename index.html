@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnAcadex - Student Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">LearnAcadex</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-link active" data-section="dashboard">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="#" class="nav-link" data-section="branches">
+        <span class="nav-icon">🏛️</span> Branches
+      </a>
+      <a href="#" class="nav-link" data-section="subjects">
+        <span class="nav-icon">📚</span> Subjects
+      </a>
+      <a href="#" class="nav-link" data-section="exams">
+        <span class="nav-icon">📅</span> Exam Dates
+      </a>
+      <a href="#" class="nav-link" data-section="profile">
+        <span class="nav-icon">👤</span> My Profile
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="student-badge">
+        <div class="badge-avatar">S</div>
+        <div class="badge-info">
+          <span class="badge-name">Student</span>
+          <span class="badge-id">ID: --</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div class="topbar-left">
+        <h1 class="page-title" id="pageTitle">Dashboard</h1>
+      </div>
+      <div class="topbar-right">
+        <div class="search-box">
+          <input type="text" placeholder="Search..." id="searchInput" />
+        </div>
+        <div class="topbar-avatar" id="topbarAvatar">S</div>
+      </div>
+    </header>
+
+    <!-- DASHBOARD SECTION -->
+    <section class="section active" id="section-dashboard">
+      <div class="welcome-banner">
+        <div class="welcome-text">
+          <h2>Welcome to <span class="highlight">LearnAcadex</span></h2>
+          <p>Select your University and Branch to get started</p>
+        </div>
+      </div>
+
+      <!-- Quick Setup -->
+      <div class="setup-card">
+        <h3>🎓 Quick Setup</h3>
+        <div class="setup-grid">
+          <div class="setup-field">
+            <label>University</label>
+            <select id="universitySelect">
+              <option value="">-- Select University --</option>
+            </select>
+          </div>
+          <div class="setup-field">
+            <label>Branch</label>
+            <select id="branchSelect" disabled>
+              <option value="">-- Select Branch --</option>
+            </select>
+          </div>
+          <div class="setup-field">
+            <label>Year</label>
+            <select id="yearSelect" disabled>
+              <option value="">-- Select Year --</option>
+            </select>
+          </div>
+          <div class="setup-field">
+            <label>Semester</label>
+            <select id="semesterSelect" disabled>
+              <option value="">-- Select Semester --</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-primary" id="saveSetup" disabled>Save & Continue</button>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid" id="statsGrid" style="display:none;">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#e8f5e9;">📚</div>
+          <div class="stat-info">
+            <span class="stat-number" id="statSubjects">0</span>
+            <span class="stat-label">Total Subjects</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#e3f2fd;">📅</div>
+          <div class="stat-info">
+            <span class="stat-number" id="statExams">0</span>
+            <span class="stat-label">Upcoming Exams</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#fff3e0;">⏱️</div>
+          <div class="stat-info">
+            <span class="stat-number" id="statDaysLeft">0</span>
+            <span class="stat-label">Days Left</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#fce4ec;">🏆</div>
+          <div class="stat-info">
+            <span class="stat-number" id="statSemester">--</span>
+            <span class="stat-label">Current Semester</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Exams Preview -->
+      <div class="card" id="upcomingCard" style="display:none;">
+        <div class="card-header">
+          <h3>Upcoming Exams</h3>
+          <a href="#" class="link-btn" data-section="exams">View All →</a>
+        </div>
+        <div class="upcoming-list" id="upcomingList"></div>
+      </div>
+    </section>
+
+    <!-- BRANCHES SECTION -->
+    <section class="section" id="section-branches">
+      <div class="section-header">
+        <h2>Branches</h2>
+        <p>Select your university first to see available branches</p>
+      </div>
+      <div class="filter-bar">
+        <select id="branchFilterUniversity">
+          <option value="">-- Select University --</option>
+        </select>
+      </div>
+      <div class="branches-grid" id="branchesGrid">
+        <div class="empty-state">
+          <span class="empty-icon">🏛️</span>
+          <p>Select a university to view branches</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBJECTS SECTION -->
+    <section class="section" id="section-subjects">
+      <div class="section-header">
+        <h2>Subjects</h2>
+        <p>Browse all subjects for your branch and semester</p>
+      </div>
+      <div class="filter-bar">
+        <select id="subjectFilterUniversity">
+          <option value="">-- University --</option>
+        </select>
+        <select id="subjectFilterBranch" disabled>
+          <option value="">-- Branch --</option>
+        </select>
+        <select id="subjectFilterSemester" disabled>
+          <option value="">-- Semester --</option>
+        </select>
+      </div>
+      <div class="subjects-grid" id="subjectsGrid">
+        <div class="empty-state">
+          <span class="empty-icon">📚</span>
+          <p>Select filters to view subjects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMS SECTION -->
+    <section class="section" id="section-exams">
+      <div class="section-header">
+        <h2>Exam Dates</h2>
+        <p>View your examination schedule</p>
+      </div>
+      <div class="filter-bar">
+        <select id="examFilterUniversity">
+          <option value="">-- University --</option>
+        </select>
+        <select id="examFilterBranch" disabled>
+          <option value="">-- Branch --</option>
+        </select>
+        <select id="examFilterSemester" disabled>
+          <option value="">-- Semester --</option>
+        </select>
+      </div>
+
+      <!-- Calendar View -->
+      <div class="calendar-card" id="calendarCard" style="display:none;">
+        <div class="calendar-header">
+          <button class="btn-icon" id="prevMonth">◀</button>
+          <h3 id="calendarMonth">August 2026</h3>
+          <button class="btn-icon" id="nextMonth">▶</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="cal-day-name">Sun</div>
+          <div class="cal-day-name">Mon</div>
+          <div class="cal-day-name">Tue</div>
+          <div class="cal-day-name">Wed</div>
+          <div class="cal-day-name">Thu</div>
+          <div class="cal-day-name">Fri</div>
+          <div class="cal-day-name">Sat</div>
+          <div id="calendarDays"></div>
+        </div>
+      </div>
+
+      <!-- Exam Table -->
+      <div class="card" id="examTableCard" style="display:none;">
+        <div class="card-header">
+          <h3>Exam Schedule</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Venue</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="examTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="empty-state" id="examEmpty">
+        <span class="empty-icon">📅</span>
+        <p>Select filters to view exam schedule</p>
+      </div>
+    </section>
+
+    <!-- PROFILE SECTION -->
+    <section class="section" id="section-profile">
+      <div class="section-header">
+        <h2>My Profile</h2>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar" id="profileAvatar">S</div>
+          <div class="profile-info">
+            <h3 id="profileName">Student</h3>
+            <p id="profileId">ID: --</p>
+          </div>
+        </div>
+        <div class="profile-form">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="profileFullName" placeholder="Enter your full name" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="profileEmail" placeholder="Enter your email" />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="profilePhone" placeholder="Enter your phone number" />
+          </div>
+          <div class="form-group">
+            <label>University</label>
+            <input type="text" id="profileUniversity" placeholder="--" readonly />
+          </div>
+          <div class="form-group">
+            <label>Branch</label>
+            <input type="text" id="profileBranch" placeholder="--" readonly />
+          </div>
+          <div class="form-group">
+            <label>Year / Semester</label>
+            <input type="text" id="profileYearSem" placeholder="--" readonly />
+          </div>
+          <button class="btn-primary" id="saveProfile">Save Profile</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
