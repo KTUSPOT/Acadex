@@ -1,1 +1,112 @@
-# Acadex
+
+# 🎓 LearnAcadex — Student Portal
+
+A modern, responsive student interface built with plain HTML, CSS, and JavaScript (no external dependencies required).
+
+## ✨ Features
+
+- **Quick Setup Flow** — Select University → Branch → Year → Semester
+- **Dashboard** — Live stats for total subjects, upcoming exams, days left, and current semester
+- **Branches** — Browse and select branches per university
+- **Subjects** — Filtered by university, branch, and semester (with subject codes & credits)
+- **Exam Dates** — Interactive monthly calendar + full exam schedule table (dates, times, venues, status)
+- **My Profile** — Save student name, email, and phone
+- **Search** — Filter subjects by name or code
+- **Fully Responsive** — Works on desktop, tablet, and mobile
+
+## 📁 File Structure
+
+| File | Description |
+|------|-------------|
+| `index.html` | Main HTML structure and all page sections |
+| `styles.css` | Styling, layout, and responsive design |
+| `script.js` | All logic and interactivity (data, filtering, calendar) |
+
+## 🚀 Getting Started
+
+Just open `index.html` in any modern web browser:
+
+```bash
+# Windows
+start index.html
+
+# Or simply double-click the file
+```
+
+No build step, server, or installation is required.
+
+## 🧭 How to Use
+
+1. On the **Dashboard**, select your University, then Branch, Year, and Semester, and click **Save & Continue**.
+2. Use the sidebar to navigate between **Branches**, **Subjects**, **Exam Dates**, and **My Profile**.
+3. In **Exam Dates**, choose filters to see your schedule rendered on both a calendar and a table.
+4. Add your details in **My Profile** and click **Save Profile**.
+
+## 🔧 Customization
+
+- **Universities, branches & subjects**: Edit the `DATA` object at the top of `script.js` to add or change institutions, branches, and courses.
+- **Colors & layout**: Adjust CSS variables in the `:root` block of `styles.css`.
+
+## 🛠️ Tech Stack
+
+- HTML5
+- CSS3 (custom properties, grid, flexbox, responsive media queries)
+- Vanilla JavaScript (ES6)
+"@
+Set-Content -LiteralPath "C:\Users\ashiq\learn-acadex\README.md" -Value $c -Encoding UTF8
+"Written"
+Written
+$ Get-Content -LiteralPath "C:\Users\ashiq\learn-acadex\README.md" -Raw
+# ?? LearnAcadex - Student Portal
+
+A modern, responsive student interface built with plain HTML, CSS, and JavaScript (no external dependencies required).
+
+## ? Features
+
+- **Quick Setup Flow** - Select University  Branch  Year  Semester
+- **Dashboard** - Live stats for total subjects, upcoming exams, days left, and current semester
+- **Branches** - Browse and select branches per university
+- **Subjects** - Filtered by university, branch, and semester (with subject codes & credits)
+- **Exam Dates** - Interactive monthly calendar + full exam schedule table (dates, times, venues, status)
+- **My Profile** - Save student name, email, and phone
+- **Search** - Filter subjects by name or code
+- **Fully Responsive** - Works on desktop, tablet, and mobile
+
+## ?? File Structure
+
+| File | Description |
+|------|-------------|
+| index.html | Main HTML structure and all page sections |
+| styles.css | Styling, layout, and responsive design |
+| script.js | All logic and interactivity (data, filtering, calendar) |
+
+## ?? Getting Started
+
+Just open index.html in any modern web browser:
+
+`ash
+# Windows
+start index.html
+
+# Or simply double-click the file
+`
+
+No build step, server, or installation is required.
+
+## ?? How to Use
+
+1. On the **Dashboard**, select your University, then Branch, Year, and Semester, and click **Save & Continue**.
+2. Use the sidebar to navigate between **Branches**, **Subjects**, **Exam Dates**, and **My Profile**.
+3. In **Exam Dates**, choose filters to see your schedule rendered on both a calendar and a table.
+4. Add your details in **My Profile** and click **Save Profile**.
+
+## ?? Customization
+
+- **Universities, branches & subjects**: Edit the DATA object at the top of script.js to add or change institutions, branches, and courses.
+- **Colors & layout**: Adjust CSS variables in the :root block of styles.css.
+
+## ??? Tech Stack
+
+- HTML5
+- CSS3 (custom properties, grid, flexbox, responsive media queries)
+- Vanilla JavaScript (ES6)
